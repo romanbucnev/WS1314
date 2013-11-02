@@ -13,7 +13,7 @@ public class TestMain {
 		Schurken shrek = new Schurken("Shrek", 200, "Feuer", false);
 		 ja.verurteilt(shrek);
 		 
-		 
+		 //Hallo du
 	}
 
 }
