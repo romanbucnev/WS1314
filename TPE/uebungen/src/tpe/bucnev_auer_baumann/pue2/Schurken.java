@@ -5,16 +5,28 @@ public class Schurken extends Mutanten implements Einkommenssteuer {
     // Deklaration der Variablen
     boolean verurteilt = false;
 
-    //Konstruktor
-    Schurken(String name, int einkommen, String superkraft, boolean verurteilt) {
+
+
+    /**
+     * Konstruktor
+     * @param name
+     * @param einkommen
+     * @param superkraft
+     * @param verurteilt
+     * @param inSyndikat
+     */
+    Schurken(String name, int einkommen, String superkraft, boolean verurteilt, boolean inSyndikat) {
         super(name, einkommen, superkraft);
         this.verurteilt = verurteilt;
 
+        //getInstance() gibt das einzige SchurkenSyndikat Objekt zurück und mit addSchurke(this) wird das aktuelle
+        //Objekt von Schurke in die Liste listSchurkenSyndikat hinzugefügt.
+        if (inSyndikat){
+            SchurkenSyndikat.getInstance().addSchurke(this);
+        }
+
+
     }
-
-    // Objekt
-    Schurken schurke = new Schurken("Lutz", 20000, "Laseraugen", false);
-
 
     //Methoden
     @Override
@@ -28,7 +40,6 @@ public class Schurken extends Mutanten implements Einkommenssteuer {
 
     @Override
     public int berechneEinkommenssteuer() {
-        // TODO Auto-generated method stub
         return 0;
     }
 

@@ -1,24 +1,48 @@
 package tpe.bucnev_auer_baumann.pue2;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class SchurkenSyndikat implements Koerperschaftssteuer {
 
-    private int einkommen = 20000;
-    private int steuerbetragSyndikat;
+//Singleton, geht nur weil ein einziges Objekt vorhanden ist und durch das private kann kein neues Objekt von außen angelegt werden
+//dient dazu, um auf dieses einzelne Objekt von überall zugreifen zu können
 
-    public int getSteuern() {
-        return berechneKoerperschaftssteuer();
+    /**
+     * Konstruktor
+     */
+    private SchurkenSyndikat(){
+         Finanzamt.KoeperschaftssteuerPflicht(this);
+    }
+
+
+    static SchurkenSyndikat getInstance(){
+                 return instance;
+    }
+
+    private static SchurkenSyndikat instance = new SchurkenSyndikat();
+
+ //Ende Singleton
+
+
+    ArrayList<Schurken> listSchurkenSyndikat = new ArrayList<Schurken>();
+
+    public void addSchurke(Schurken schurke){
+        listSchurkenSyndikat.add(schurke);
+
+
     }
 
     @Override
     public int berechneKoerperschaftssteuer() {
-        return steuerbetragSyndikat = (einkommen * LINEARERSTEUERSATZ_KOERPER) / 100;
-    }
 
-    LinkedList<Schurken> ListSchurkenSyndikat = new LinkedList<Schurken>();
+        int summeEinkommen = 0;
 
-    public LinkedList<Schurken> getListSchurkenSyndikat() {
-        return ListSchurkenSyndikat;
+        for( Schurken schurk : listSchurkenSyndikat) {
+
+            summeEinkommen = summeEinkommen + schurk.getEinkommen();
+
+        }
+
+        return ((summeEinkommen/100) * Konstanten.LINEARERSTEUERSATZ_KOERPER);
     }
 }

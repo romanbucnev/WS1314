@@ -1,4 +1,4 @@
-package TPE.uebungen.src.tpe.bucnev_auer_baumann.pue2;
+package tpe.bucnev_auer_baumann.pue2;
 
 import tpe.bucnev_auer_baumann.pue2.Buerger;
 import tpe.bucnev_auer_baumann.pue2.Gewerbesteuer;
@@ -14,6 +14,12 @@ public class Kapitalgesellschaften extends Unternehmen implements
 
     private LinkedList<Buerger> gesellschafter = new LinkedList<Buerger>();
 
+    /**
+     * Konstruktor
+     * @param unternehmensName
+     * @param unternehmensGewinn
+     * @param gesellschafter
+     */
     public Kapitalgesellschaften(String unternehmensName,
                                  int unternehmensGewinn, LinkedList<Buerger> gesellschafter) {
         super(unternehmensName, unternehmensGewinn);
@@ -21,6 +27,7 @@ public class Kapitalgesellschaften extends Unternehmen implements
         Finanzamt.KoeperschaftssteuerPflicht(this);
         Finanzamt.GewerbesteuerPflicht(this);
     }
+
 
     public LinkedList<Buerger> getGesellschafter() {
         return gesellschafter;

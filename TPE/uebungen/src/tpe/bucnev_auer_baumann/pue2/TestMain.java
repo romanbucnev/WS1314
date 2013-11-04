@@ -4,15 +4,15 @@ public class TestMain {
 
 	public static void main(String[] args) {
 
-		Mutanten ha = new Schurken("Roman", 21, "Laser", false);
+		Mutanten ha = new Schurken("Roman", 21, "Laser", false, false);
 		Mutanten held = new Superhelden("Lutzi", 22, "Laser");
 //		held.kaempfe(ha);
 		
 		
 		Richter ja = new Richter("Richy", 34, 2000, false);
-		Schurken shrek = new Schurken("Shrek", 200, "Feuer", false);
+		Schurken shrek = new Schurken("Shrek", 200, "Feuer", false, true);
 		 ja.verurteilt(shrek);
-		 
+		 System.out.println(shrek);
 		 
 	}
 

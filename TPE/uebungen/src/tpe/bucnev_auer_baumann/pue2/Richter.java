@@ -12,7 +12,7 @@ public class Richter extends Menschen {
 
     /**
      * Methode zur Bestimmung, ob ein Schurke verurteilt wird, mithilfe der Überprüfung der Korruption
-     * @param Schurke
+     * @param schurke
      * @return Schurke wird verurteilt oder Schurke wird nicht verurteilt
      */
     protected boolean verurteilt(Schurken schurke) {

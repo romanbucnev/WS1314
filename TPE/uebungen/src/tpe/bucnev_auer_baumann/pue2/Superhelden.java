@@ -11,9 +11,9 @@ public class Superhelden extends Mutanten {
     @Override
     protected boolean kaempfe(Mutanten mutant) {
         if (this.superkraft.equals(mutant.superkraft)) {
-            return true; // superheld gewinnt
+            return true; // superheld verliert
         } else {
-            return false; // superheld verliert
+            return false; // superheld gewinnt
         }
     }
 

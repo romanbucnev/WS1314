@@ -7,15 +7,15 @@ public abstract class Steuern {
     protected int gewinn;
     protected int steuerbetrag;
 
-    public Steuern(int linearerSteuersatz, int progressiverSteuersatz) {
-        this.linearerSteuersatz = linearerSteuersatz;
-        this.progressiverSteuersatz = progressiverSteuersatz;
-    }
+//    public Steuern(int linearerSteuersatz, int progressiverSteuersatz) {
+//        this.linearerSteuersatz = linearerSteuersatz;
+//        this.progressiverSteuersatz = progressiverSteuersatz;
+//    }
 
     public abstract int berechneSteuer();
 
     public String toString(){
-        return "
+        return null;
     }
 
 }

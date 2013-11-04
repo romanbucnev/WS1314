@@ -1,30 +1,65 @@
 package tpe.bucnev_auer_baumann.pue2;
 
-import  tpe.bucnev_auer_baumann.pue2.Konstanten;
-
+/**
+ * Klasse, in der die Einkommensteuer der Buerger von Metropolis berechnet wird
+ *
+ * @author Patric Auer
+ * @author Roman Bucnev
+ * @author Tobias Baumann
+ *
+ */
 public class Buerger extends Menschen implements Einkommenssteuer {
 
     int steuerbetrag;
 
+    /**
+     * Konstruktor zur Erzeugung eines Buerger
+     *
+     * @param name
+     *            des Buerrger
+     * @param alter
+     *            des Buerger
+     * @param einkommen
+     *            des Buerger
+     */
     Buerger(String name, int alter, int einkommen) {
         super(name, alter, einkommen);
     }
 
-    @Override
+    /**
+     * Methode, um die Einkommensteuer zu berechnen
+     *
+     * @return steuerbetrag betrag der die Höhe der Einkommensteuer liefert
+     */
     public int berechneEinkommenssteuer() {
-        if(einkommen <= 20000){
-            return steuerbetrag = (einkommen * PROGRESSIVERSTEUERSATZ_EINKOMMEN1 ) / 100;
-        }
 
-        if(einkommen < 20000 && einkommen <= 40000) {
+        int grenze20k = (Konstanten.BERECHNUNGSGRENZE_20K * Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN1) / 100;
+        int grenze40k = ((Konstanten.BERECHNUNGSGRENZE_20K * Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
+                + grenze20k;
+        int grenze60k = ((Konstanten.BERECHNUNGSGRENZE_20K * Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
+                + grenze40k;
+        int grenze120k = ((Konstanten.BERECHNUNGSGRENZE_60K * Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN3) / 100)
+                + grenze60k;
+
+        if (einkommen <= 0) {
+            return steuerbetrag = 0;
+        } else if (einkommen <= Konstanten.BERECHNUNGSGRENZE_20K) {
+            return steuerbetrag = (einkommen * Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN1) / 100;
+        } else if (einkommen <= Konstanten.BERECHNUNGSGRENZE_60K) {
+            return steuerbetrag = (((einkommen - Konstanten.BERECHNUNGSGRENZE_40K) * Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
+                    + grenze40k;
+        } else if (einkommen <= Konstanten.BERECHNUNGSGRENZE_120K) {
+            return steuerbetrag = (((einkommen - Konstanten.BERECHNUNGSGRENZE_60K) * Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN3) / 100)
+                    + grenze60k;
+        } else {
+            return steuerbetrag = (((einkommen - Konstanten.BERECHNUNGSGRENZE_120K) * Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN4) / 100)
+                    + grenze120k;
         }
-        return 0;
     }
 
     @Override
     public String toString() {
-        return "Buerger [Name= " + name + ", Alter= " + alter + ", Einkommen="
-                + einkommen + "]";
+        return "Buerger [steuerbetrag=" + steuerbetrag + "]";
     }
 
 }
