@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class Kapitalgesellschaften extends Unternehmen implements
         Koerperschaftssteuer, Gewerbesteuer {
 
-
+       //Test
 
     private LinkedList<Buerger> gesellschafter = new LinkedList<Buerger>();
 
