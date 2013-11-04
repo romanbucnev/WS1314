@@ -1,6 +1,6 @@
 package tpe.bucnev_auer_baumann.pue2;
 
-import static de.hs_ma.ws_13.tpe_04_uib.auer_baummann_bucnev.metropolis.Konstanten.*;
+import  tpe.bucnev_auer_baumann.pue2.Konstanten;
 
 public class Buerger extends Menschen implements Einkommenssteuer {
 
@@ -16,8 +16,9 @@ public class Buerger extends Menschen implements Einkommenssteuer {
             return steuerbetrag = (einkommen * PROGRESSIVERSTEUERSATZ_EINKOMMEN1 ) / 100;
         }
 
-        if(einkommen < 20000 && einkommen <= 40000)
-            return
+        if(einkommen < 20000 && einkommen <= 40000) {
+        }
+        return 0;
     }
 
     @Override
