@@ -29,27 +29,5 @@ public abstract class Finanzamt<e, k, g> implements Einkommenssteuer,
         ListGewerbesteuer.add(g);
     }
 
-//	public int berechneEinkommenssteuer() {
-//        int summe = 0;
-//        for (Einkommenssteuer e : ListEinkommenssteuer) {
-//            summe = summe + e.berechneEinkommenssteuer();
-//        }
-//        return summe;
-//    }
-//	
-//	public int berechneKoerperschaftssteuer() {
-//        int summe = 0;
-//        for (Koerperschaftssteuer k : ListKoerperschaftssteuer) {
-//            summe = summe + k.berechneKoerperschaftssteuer();
-//        }
-//        return summe;
-//    }
-//
-//    public int berechneGewerbesteuer() {
-//        int summe = 0;
-//        for (Gewerbesteuer g : ListGewerbesteuer) {
-//            summe = summe + g.berechneGewerbesteuer();
-//        }
-//        return summe;
-//    }
+
 }
