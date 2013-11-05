@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Finanzamt{
 
     private static final ArrayList<Einkommenssteuer> ListEinkommenssteuer = new ArrayList<Einkommenssteuer>();
-    private static final ArrayList<Koerperschaftssteuer> ListKoerperschaftssteuer = new ArrayList<Koerperschaftssteuer>();
+    protected static final ArrayList<Koerperschaftssteuer> ListKoerperschaftssteuer = new ArrayList<Koerperschaftssteuer>();
     private static final ArrayList<Gewerbesteuer> ListGewerbesteuer = new ArrayList<Gewerbesteuer>();
 
 
@@ -16,6 +16,7 @@ public class Finanzamt{
     public static void KoeperschaftssteuerPflicht(Koerperschaftssteuer k) {
 
         ListKoerperschaftssteuer.add(k);
+
     }
 
     public static void GewerbesteuerPflicht(Gewerbesteuer g) {

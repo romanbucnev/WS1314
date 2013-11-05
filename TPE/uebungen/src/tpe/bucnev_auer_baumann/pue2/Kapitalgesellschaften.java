@@ -1,35 +1,33 @@
 package tpe.bucnev_auer_baumann.pue2;
 
-import tpe.bucnev_auer_baumann.pue2.Buerger;
-import tpe.bucnev_auer_baumann.pue2.Gewerbesteuer;
-import tpe.bucnev_auer_baumann.pue2.Koerperschaftssteuer;
-import tpe.bucnev_auer_baumann.pue2.Konstanten;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Kapitalgesellschaften extends Unternehmen implements
         Koerperschaftssteuer, Gewerbesteuer {
 
-       //Test
-
-    private LinkedList<Buerger> gesellschafter = new LinkedList<Buerger>();
+    private ArrayList<Buerger> gesellschafter = new ArrayList<Buerger>();
+    private  ArrayList<Kapitalgesellschaften> listKapitalgesellschaften = new ArrayList<Kapitalgesellschaften>();
 
     /**
      * Konstruktor
      * @param unternehmensName
      * @param unternehmensGewinn
-     * @param gesellschafter
      */
     public Kapitalgesellschaften(String unternehmensName,
-                                 int unternehmensGewinn, LinkedList<Buerger> gesellschafter) {
+                                 int unternehmensGewinn) {
         super(unternehmensName, unternehmensGewinn);
         this.gesellschafter = gesellschafter;
         Finanzamt.KoeperschaftssteuerPflicht(this);
-        Finanzamt.GewerbesteuerPflicht(this);
+       // Finanzamt.GewerbesteuerPflicht(this);
+    }
+
+    public void addKapitalgesellschaft(Kapitalgesellschaften kapitalgesellschaften){
+        listKapitalgesellschaften.add(kapitalgesellschaften);
     }
 
 
-    public LinkedList<Buerger> getGesellschafter() {
+    public ArrayList<Buerger> getGesellschafter() {
         return gesellschafter;
     }
 
@@ -43,4 +41,11 @@ public class Kapitalgesellschaften extends Unternehmen implements
         return (this.getGewinn() / 100) * 10;
     }
 
+    @Override
+    public String toString() {
+        return "Kapitalgesellschaften{" +
+                "Unternehmensname=" + unternehmensName +
+                ", Unternehmensgewinn=" + unternehmensGewinn +
+                '}';
+    }
 }

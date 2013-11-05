@@ -45,4 +45,11 @@ public class SchurkenSyndikat implements Koerperschaftssteuer {
 
         return ((summeEinkommen/100) * Konstanten.LINEARERSTEUERSATZ_KOERPER);
     }
+
+    @Override
+    public String toString() {
+        return "SchurkenSyndikat{" +
+                "listSchurkenSyndikat=" + listSchurkenSyndikat +
+                '}';
+    }
 }
