@@ -46,36 +46,34 @@ public class Personengesellschaften extends Unternehmen implements
     }
 
     /**
-     * Methode, um die Einkommensteuer zu berechnen
-     *
-     * @return steuerbetrag betrag der die Höhe der Einkommensteuer liefert
-     */
-    public int berechneEinkommenssteuer() {
+	 * Methode, um die Einkommensteuer zu berechnen
+	 * 
+	 * @return steuerbetrag betrag der die Höhe der Einkommensteuer liefert
+	 */
+	public int berechneEinkommenssteuer() {
 
-        int grenze20k =  (Konstanten.BERECHNUNGSGRENZE_20K *  Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN1) / 100;
-        int grenze40k = ( (Konstanten.BERECHNUNGSGRENZE_20K *  Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
-                + grenze20k;
-        int grenze60k = ( (Konstanten.BERECHNUNGSGRENZE_20K *  Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
-                + grenze40k;
-        int grenze120k = ( (Konstanten.BERECHNUNGSGRENZE_60K *  Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN3) / 100)
-                + grenze60k;
+		int grenze20k = (BERECHNUNGSGRENZE_20K * PROGRESSIVERSTEUERSATZ_EINKOMMEN1) / 100;
+		int grenze40k = ((BERECHNUNGSGRENZE_20K * PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
+				+ grenze20k;
+		int grenze60k = ((BERECHNUNGSGRENZE_20K * PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
+				+ grenze40k;
+		int grenze120k = ((BERECHNUNGSGRENZE_60K * PROGRESSIVERSTEUERSATZ_EINKOMMEN3) / 100)
+				+ grenze60k;
 
-        /**
-        if (einkommen <= 0) {
-            return steuerbetrag = 0;
-        } else if (einkommen <=  Konstanten.BERECHNUNGSGRENZE_20K) {
-            return steuerbetrag = (einkommen *  Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN1) / 100;
-        } else if (gewinn <=  Konstanten.BERECHNUNGSGRENZE_60K) {
-            return steuerbetrag = (((einkommen -  Konstanten.BERECHNUNGSGRENZE_40K) *  Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
-                    + grenze40k;
-        } else if (gewinn <=  Konstanten.BERECHNUNGSGRENZE_120K) {
-            return steuerbetrag = (((einkommen -  Konstanten.BERECHNUNGSGRENZE_60K) *  Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN3) / 100)
-                    + grenze60k;
-        } else {
-            return steuerbetrag = (((einkommen -  Konstanten.BERECHNUNGSGRENZE_120K) *  Konstanten.PROGRESSIVERSTEUERSATZ_EINKOMMEN4) / 100)
-                    + grenze120k;
-        }  */
-        return 10;
-    }
+		if (gewinn <= 0) {
+			return steuerbetrag = 0;
+		} else if (gewinn <= BERECHNUNGSGRENZE_20K) {
+			return steuerbetrag = (gewinn * PROGRESSIVERSTEUERSATZ_EINKOMMEN1) / 100;
+		} else if (gewinn <= BERECHNUNGSGRENZE_60K) {
+			return steuerbetrag = (((gewinn - BERECHNUNGSGRENZE_40K) * PROGRESSIVERSTEUERSATZ_EINKOMMEN2) / 100)
+					+ grenze40k;
+		} else if (gewinn <= BERECHNUNGSGRENZE_120K) {
+			return steuerbetrag = (((gewinn - BERECHNUNGSGRENZE_60K) * PROGRESSIVERSTEUERSATZ_EINKOMMEN3) / 100)
+					+ grenze60k;
+		} else {
+			return steuerbetrag = (((gewinn - BERECHNUNGSGRENZE_120K) * PROGRESSIVERSTEUERSATZ_EINKOMMEN4) / 100)
+					+ grenze120k;
+		}
+	}
 
 }
